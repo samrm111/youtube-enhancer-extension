@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+
+  "name": "Youtube Enhancer",
+  "description": "Add features that Youtube should have",
+  "version": "0.1",
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "https://ajax.googleapis.com/"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/watch*", "http://www.youtube.com/watch*"],
+      "js": ["js/jquery.min.js", "js/realtime.js"]
+    },
+    {
+      "matches": ["https://www.youtube.com/*", "http://www.youtube.com/*"],
+      "css": ["css/style.css"],
+      "js": ["js/jquery.min.js", "js/custom.js"]
+    }
+  ]
+}
